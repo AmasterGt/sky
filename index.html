@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<title>好贷</title>
+	</head>
+	<body>
+		
+		<div class="box">
+			<h2>快速搜索消费贷款</h2>
+			<div>
+				<p class="clearFix"><span>贷款金额：</span><span>不足一万可用小数表示</span></p>
+				<div class="clearFix">
+					<span>万元</span><input class="qian"  type="text" value="30"/><i class="fa fa-sort-desc"></i>
+					<ul class="xian">
+							<li>5万元</li>
+							<li>10万元</li>
+							<li>15万元</li>
+							<li>20万元</li>
+							<li>25万元</li>
+							<li>30万元</li>
+						</ul>
+				</div>
+				<p class="clearFix"><span>带环期限：</span></p>
+				<div class="clearFix">
+					<span class="yew">年</span><input class="nian" type="text" value="1"/><i class="fa fa-sort-desc"></i>
+					<ul class="xian">
+							<li>6个月</li>
+							<li>1年</li>
+							<li>18个月</li>
+							<li>2年</li>
+							<li>3年</li>
+							<li>5年</li>
+							<li>10年</li>
+						</ul>
+				</div>
+				<input type="button" value="搜索一下" class="dianji" />
+				<h6>ahpofajpofasopfjapsjfpsajfpajfp</h6>
+			</div>
+		</div>
+	</body>
+	<script src="jquery-3.1.1.min.js"></script>
+	<script>
+		$(function(){
+			$(".fa").blur(function(){
+				$(".xian").hide()
+			})
+			
+			$(".fa").click(function(){
+				$(this).toggleClass("fa-sort-asc").siblings("ul").toggle()
+			})
+			$(".xian").eq(1).find("li").click(function(){
+				var text1=$(this).text().slice($(this).text().length-1,$(this).text().length)
+				var val=parseInt($(this).text())
+				$(".yew").text(text1)
+			$(".nian").val(val)
+				$(".xian").hide()
+				$(".fa").addClass("fa-sort-desc").removeClass("fa-sort-asc")
+				
+				
+			})
+			$(".xian").eq(0).find("li").click(function(){
+				var val=parseInt($(this).text())
+				$(".qian").val(val)
+					$(".xian").hide()
+					$(".fa").addClass("fa-sort-desc").removeClass("fa-sort-asc")
+						alert(1)
+				
+			})
+		})
+	</script>
+</html>
